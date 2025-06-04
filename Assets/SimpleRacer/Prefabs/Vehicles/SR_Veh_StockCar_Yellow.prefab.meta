@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 66a8a2b36524b6d42996a468a419bcc8
+timeCreated: 1464313845
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Vehicles/SR_Veh_StockCar_Yellow.prefab
+  uploadId: 622388

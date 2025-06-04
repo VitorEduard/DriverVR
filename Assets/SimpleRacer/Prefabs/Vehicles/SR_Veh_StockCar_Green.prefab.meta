@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 91895565132ec674a965d0e79f42ac52
+timeCreated: 1464313842
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Vehicles/SR_Veh_StockCar_Green.prefab
+  uploadId: 622388

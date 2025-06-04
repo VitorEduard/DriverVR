@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ed81477ec2653844ab986fa7491b58bf
+timeCreated: 1464151999
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_FuelCart.prefab
+  uploadId: 622388

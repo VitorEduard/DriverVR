@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9de5562bb92ba8d4b9fc09e767a3a7fb
+timeCreated: 1464320686
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Environment/SR_Env_Concrete_Track_Straight_Skids.prefab
+  uploadId: 622388

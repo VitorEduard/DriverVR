@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: eed40c1580d083e489fa96ac8920795d
+timeCreated: 1464041193
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_Barrier_Tires_02.prefab
+  uploadId: 622388

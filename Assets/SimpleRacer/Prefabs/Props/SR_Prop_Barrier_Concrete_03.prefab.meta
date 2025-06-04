@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 87a8270f6c39de24d906015bdf9e8257
+timeCreated: 1464041192
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_Barrier_Concrete_03.prefab
+  uploadId: 622388

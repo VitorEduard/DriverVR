@@ -1,11 +1,13 @@
+using System;
 using UnityEngine;
 
 public class ControllerManager : MonoBehaviour
 {
     [SerializeField] public Notificacao notificacao;
+    [SerializeField] public String nomeCena;
 
     private bool sintoAfivelado = false;
-    private bool ignicaoAcionada = false;
+    public bool ignicaoAcionada = false;
 
 
     void Update()

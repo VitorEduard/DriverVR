@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a0ccdc02a9bf21645b8201f6b89d86af
+timeCreated: 1464142186
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_Jumbotron.prefab
+  uploadId: 622388

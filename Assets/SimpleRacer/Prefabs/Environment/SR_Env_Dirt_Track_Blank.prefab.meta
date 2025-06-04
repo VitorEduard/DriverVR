@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a60d847df9fca6948ba375c6d1c50613
+timeCreated: 1464041195
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Environment/SR_Env_Dirt_Track_Blank.prefab
+  uploadId: 622388

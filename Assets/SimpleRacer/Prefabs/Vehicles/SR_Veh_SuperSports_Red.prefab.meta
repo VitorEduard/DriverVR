@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fd99b82a316952140962e83894d72c26
+timeCreated: 1464313831
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Vehicles/SR_Veh_SuperSports_Red.prefab
+  uploadId: 622388

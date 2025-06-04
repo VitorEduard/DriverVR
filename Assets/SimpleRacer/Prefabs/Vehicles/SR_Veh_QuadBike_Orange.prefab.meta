@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7bca69cc738dda94a858c5ba3f9639a6
+timeCreated: 1464313837
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Vehicles/SR_Veh_QuadBike_Orange.prefab
+  uploadId: 622388

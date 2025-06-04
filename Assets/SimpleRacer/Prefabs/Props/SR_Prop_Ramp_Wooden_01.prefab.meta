@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f1b80c54e3d7e9243b7dcaa65882d06d
+timeCreated: 1464041196
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_Ramp_Wooden_01.prefab
+  uploadId: 622388

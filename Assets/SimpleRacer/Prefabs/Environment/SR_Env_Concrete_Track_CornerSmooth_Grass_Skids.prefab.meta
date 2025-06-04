@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6d92a5a9f2114684fa194b0d84b771c2
+timeCreated: 1464320687
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Environment/SR_Env_Concrete_Track_CornerSmooth_Grass_Skids.prefab
+  uploadId: 622388

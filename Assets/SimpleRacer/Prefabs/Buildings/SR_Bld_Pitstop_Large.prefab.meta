@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bb49c69e24b87cd4494366d40cc4b1ba
+timeCreated: 1464041194
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Buildings/SR_Bld_Pitstop_Large.prefab
+  uploadId: 622388

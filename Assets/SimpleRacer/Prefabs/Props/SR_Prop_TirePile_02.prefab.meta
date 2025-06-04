@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a91eef2ba4dc53c4f952b1c182bacb88
+timeCreated: 1464041191
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_TirePile_02.prefab
+  uploadId: 622388

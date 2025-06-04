@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ba7e35dbdc27f2f4a99fdb6ea5296e79
+timeCreated: 1464741303
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_Grass.prefab
+  uploadId: 622388

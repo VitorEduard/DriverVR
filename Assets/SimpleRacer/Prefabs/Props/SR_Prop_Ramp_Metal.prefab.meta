@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 94b1f69ec70cbf34cba1b3bfa6d420e6
+timeCreated: 1464311387
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_Ramp_Metal.prefab
+  uploadId: 622388

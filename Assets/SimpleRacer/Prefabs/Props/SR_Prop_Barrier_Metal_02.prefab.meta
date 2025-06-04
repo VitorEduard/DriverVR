@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7249b2ce0e95a6f47a26dc44cebe17c4
+timeCreated: 1464041196
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_Barrier_Metal_02.prefab
+  uploadId: 622388

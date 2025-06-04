@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a0a8141f87add3f4aa0051d28cffce32
+timeCreated: 1464323467
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Environment/SR_Env_Concrete_Track_CornerTight_04.prefab
+  uploadId: 622388

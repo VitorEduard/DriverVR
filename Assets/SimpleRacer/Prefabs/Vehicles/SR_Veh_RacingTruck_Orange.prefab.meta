@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6e6c1f54694a31d4e887e22d7a3da8a2
+timeCreated: 1464313845
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Vehicles/SR_Veh_RacingTruck_Orange.prefab
+  uploadId: 622388

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e772dccd6b527024397260467eef39fa
+timeCreated: 1464313827
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Vehicles/SR_Veh_F1Car_Red.prefab
+  uploadId: 622388

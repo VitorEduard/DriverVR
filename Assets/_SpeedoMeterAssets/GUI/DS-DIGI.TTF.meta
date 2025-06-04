@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 16e399559e9fb324d8ef4f736a923a8a
+timeCreated: 18446744011573954816
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: 
+  fontNames: []
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 9840
+  packageName: EZ SpeedoMeter
+  packageVersion: 1.03
+  assetPath: Assets/_SpeedoMeterAssets/GUI/DS-DIGI.TTF
+  uploadId: 372841

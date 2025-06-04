@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dfd08e397abbe184c92bd194c8ef68a9
+timeCreated: 1464041195
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Environment/SR_Env_Concrete_Track_StartingGrid_01.prefab
+  uploadId: 622388

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0dec666ff8752354d9e5c95e163b2de2
+timeCreated: 1464313825
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Vehicles/SR_Veh_DerbyCar_Orange.prefab
+  uploadId: 622388

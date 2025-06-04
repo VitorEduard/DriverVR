@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d96d59a43551561429bd96ff00cd685a
+timeCreated: 1464583101
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Buildings/SR_Bld_Tent_Long.prefab
+  uploadId: 622388

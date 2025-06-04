@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2c49b604f6c52444fb6417276b0aa98f
+timeCreated: 1464152000
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_TV_Cabinet.prefab
+  uploadId: 622388

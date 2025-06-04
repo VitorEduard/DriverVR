@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a80cd43b3b1aff04f9a9fbb3edf9da16
+timeCreated: 1464666414
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Buildings/SR_Bld_Stadium_Straight.prefab
+  uploadId: 622388

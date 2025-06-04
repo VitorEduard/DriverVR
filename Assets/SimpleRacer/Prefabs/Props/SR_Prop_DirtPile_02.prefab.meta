@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 433a1d93d4602684dbcc383187c0b584
+timeCreated: 1464311738
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_DirtPile_02.prefab
+  uploadId: 622388

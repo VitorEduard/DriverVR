@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8724009574237634590e34ec1346232f
+timeCreated: 1464665587
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Vehicles/SR_Veh_DirtBike_Orange.prefab
+  uploadId: 622388

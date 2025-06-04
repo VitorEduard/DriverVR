@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a25ae6976810efd4fa791d635bc05131
+timeCreated: 1464320686
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Environment/SR_Env_Concrete_Track_CornerSmooth_Sand_Skids.prefab
+  uploadId: 622388

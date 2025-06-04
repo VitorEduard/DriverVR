@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 75ce5faac9105d14c9c27bc5a9f28393
+timeCreated: 18446744011573954816
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 9840
+  packageName: EZ SpeedoMeter
+  packageVersion: 1.03
+  assetPath: Assets/_SpeedoMeterAssets/_Scripts/SpeedoMeterScript.cs
+  uploadId: 372841

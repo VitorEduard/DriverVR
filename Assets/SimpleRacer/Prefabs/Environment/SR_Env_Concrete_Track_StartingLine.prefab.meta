@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 20020e603587977458644fccd63c16ef
+timeCreated: 1464041196
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Environment/SR_Env_Concrete_Track_StartingLine.prefab
+  uploadId: 622388

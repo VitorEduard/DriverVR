@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 821d346210bfef34a879204b018c74ab
+timeCreated: 1464140807
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_Platform.prefab
+  uploadId: 622388

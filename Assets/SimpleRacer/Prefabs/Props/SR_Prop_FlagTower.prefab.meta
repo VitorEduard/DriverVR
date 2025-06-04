@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8a3d229678d999f41b8ddb1290592c0e
+timeCreated: 1464041193
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_FlagTower.prefab
+  uploadId: 622388

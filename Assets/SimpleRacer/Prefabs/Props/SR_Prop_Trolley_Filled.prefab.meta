@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a073ad4c141917f49bd7b7edba722284
+timeCreated: 1464151999
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_Trolley_Filled.prefab
+  uploadId: 622388

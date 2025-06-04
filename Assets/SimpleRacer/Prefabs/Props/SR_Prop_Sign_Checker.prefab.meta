@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: de6e9e5444cc770448047798d3c893f9
+timeCreated: 1464759983
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_Sign_Checker.prefab
+  uploadId: 622388

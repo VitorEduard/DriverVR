@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f00291c91f7f36a428183c6584c774db
+timeCreated: 1464068949
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Environment/SR_Env_Dirt_Track_Jump_01.prefab
+  uploadId: 622388

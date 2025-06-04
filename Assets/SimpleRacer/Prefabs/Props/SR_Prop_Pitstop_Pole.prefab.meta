@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ec6768a51afd3ce4b8e1e6e267fea721
+timeCreated: 1464151999
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_Pitstop_Pole.prefab
+  uploadId: 622388

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d7e6be6b2e6c35f41a210cf10452980d
+timeCreated: 1464151999
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_ToolCart.prefab
+  uploadId: 622388

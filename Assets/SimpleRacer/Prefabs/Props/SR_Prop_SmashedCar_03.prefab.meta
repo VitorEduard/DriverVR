@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7e57c08e28b347d4b8daaaef33120f8f
+timeCreated: 1464041195
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_SmashedCar_03.prefab
+  uploadId: 622388

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2de86c9d7766d2b4f859c7a9ea75b1d2
+timeCreated: 1464817358
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37490
+  packageName: Simple Racer - Cartoon Assets
+  packageVersion: 1.5
+  assetPath: Assets/SimpleRacer/Prefabs/Props/SR_Prop_Barrel.prefab
+  uploadId: 622388

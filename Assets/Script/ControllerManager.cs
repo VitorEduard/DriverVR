@@ -5,15 +5,18 @@ public class ControllerManager : MonoBehaviour
 {
     [SerializeField] public Notificacao notificacao;
     [SerializeField] public String nomeCena;
+    [SerializeField] private Transform cameraRig;
+    [SerializeField] private Transform pontoNoCarro;
 
     private bool sintoAfivelado = false;
     public bool ignicaoAcionada = false;
 
 
-    void Update()
+    void LateUpdate()
     {
-
-
+        Vector3 vector3 = new Vector3(1, 1, 0);
+        cameraRig.position = pontoNoCarro.position;
+        cameraRig.rotation = pontoNoCarro.rotation;
     }
 
     public void AfivelarSinto()

@@ -9,10 +9,12 @@ public class MotorManager : MonoBehaviour
     [SerializeField] private AnimationCurve eficienciaMotor;
     [SerializeField] private AnimationCurve curvaTorque;
     [SerializeField] private AnimationCurve curvaFreioMotor;
+    [SerializeField] private AnimationCurve curvaLimiteRPMMotor;
 
     private MarchaEnum marchaAtual;
     private float rotacaoLivre = 900f;
-    private float rpmMotor = 800f;
+    private float rpmMotor = 0f;
+    private float rpmMotorAnterior = 800f;
     private float diferencial = 4.1f;
     private float velocidadeSuavizada = 0.0f;
     private float freioMotor = 2_000f;
@@ -20,7 +22,7 @@ public class MotorManager : MonoBehaviour
 
     public float CalcularFreioMotor()
     {
-        return curvaFreioMotor.Evaluate(rpmMotor) * freioMotor;
+        return curvaFreioMotor.Evaluate(rpmMotor) * freioMotor * Time.deltaTime;
     }
 
     public float RelacaoMarcha()
@@ -30,7 +32,11 @@ public class MotorManager : MonoBehaviour
 
     public float RpmAlvoMotorLivre(float pedalAceleracao)
     {
-        return Mathf.Max(rotacaoLivre, rpmMotor + (pedalAceleracao * 400_000 * Time.deltaTime));
+        rpmMotorAnterior = rpmMotor;
+        float rpmMotorLivre = Mathf.Max(rotacaoLivre, rpmMotor + (pedalAceleracao * 400_000 * Time.deltaTime));
+        float aumentoRpmMotor = rpmMotor - rpmMotorAnterior;
+        float resistenciaMotor = MathF.Abs(curvaLimiteRPMMotor.Evaluate(rpmMotor) - 1);
+        return rpmMotorAnterior + (aumentoRpmMotor * resistenciaMotor);
     }
 
     public bool EhMarchaNeutra()
@@ -48,7 +54,14 @@ public class MotorManager : MonoBehaviour
 
     public float CalcularRpmMotor(float rpmMotorAlvo, float impactoEmbreagem)
     {
+        rpmMotorAnterior = rpmMotor;
         rpmMotor = Mathf.SmoothDamp(rpmMotor, rpmMotorAlvo, ref velocidadeSuavizada, impactoEmbreagem);
+        float aumentoRpmMotor = rpmMotor - rpmMotorAnterior;
+        if (aumentoRpmMotor > 0)
+        {
+            float resistenciaMotor = MathF.Abs(curvaLimiteRPMMotor.Evaluate(rpmMotor) -1);
+            rpmMotor = rpmMotorAnterior + (aumentoRpmMotor * resistenciaMotor);
+        }
         return rpmMotor;
     }
 

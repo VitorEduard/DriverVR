@@ -17,21 +17,28 @@ public class TransmicaoManager : MonoBehaviour
 
         if (!motor.EhMarchaNeutra())
         {
-            float forcaFreioMotor = CalcularForcaFreioMotor(pedalEmbreagem, pedalAceleracao, motor);
-            if (kph < 10)
-            {
-                forcaFreioMotor = 0;
-            }
+            float forcaFreioMotor = CalcularForcaFreioMotor(pedalEmbreagem, pedalAceleracao, motor, kph);
             float torqueAplicadoNaRoda = forcaAceleracaoMotor - forcaFreioMotor;
             Debug.Log(torqueAplicadoNaRoda);
             rodas.Mover(torqueAplicadoNaRoda);
         }
     }
 
-    private float CalcularForcaFreioMotor(float pedalEmbreagem, float pedalAceleracao, MotorManager motor)
+    private float CalcularForcaFreioMotor(float pedalEmbreagem, float pedalAceleracao, MotorManager motor, float kph)
     {
-        float forcaFreioMotor = motor.CalcularFreioMotor();
-        return pedalEmbreagemInv * forcaFreioMotor;
+        // IF para o carro não andar pra trás
+        if (kph < 1)
+        {
+            return 0f;
+        }
+        // Só age quando o pedal de aceleração não for apertado
+        // 0,05 tem uma margem para quando não detecta corretamente o pedal livre
+        if (pedalAceleracao < 0.05f)
+        {
+            float forcaFreioMotor = motor.CalcularFreioMotor();
+            return pedalEmbreagemInv * forcaFreioMotor;
+        }
+        return 0;
     }
 
     private float CalcularForcaAceleracaoMotor()
@@ -65,7 +72,8 @@ public class TransmicaoManager : MonoBehaviour
 
         // Se a embreagem estiver muito apertada a velocidade com que o motor aumenta as rotações aumenta também
         float impactoEmbreagem = (Mathf.Abs(pedalEmbreagem - 1) * 0.4f);
-        Debug.Log(motor.CalcularRpmMotor(rpmMotorAlvo, 0.05f + impactoEmbreagem));
+        float v = motor.CalcularRpmMotor(rpmMotorAlvo, 0.05f + impactoEmbreagem);
+        Debug.Log(v);
 
         motor.ValidarVariacaoRpmMuitoAlta(rpmMotorAlvo, pedalEmbreagem);
 

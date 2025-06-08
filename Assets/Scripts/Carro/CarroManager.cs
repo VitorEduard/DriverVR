@@ -1,4 +1,5 @@
 using Logitech;
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,9 +19,11 @@ public class CarroManager : MonoBehaviour
     [SerializeField] private TransmicaoManager transmicao;
     [SerializeField] private bool offRoad = false;
     [SerializeField] private bool pistaMolhada = false;
+    [SerializeField] private Transform pivotCameraVR;
     private Rigidbody carroRigidBody;
     private GameObject centroDeMassa;
     public bool motorLigado = false;
+    private bool[] botoesPressionados = new bool[256];
 
 
     // Variveis do Carro
@@ -44,6 +47,8 @@ public class CarroManager : MonoBehaviour
     void Update()
     {
         AtualizarVariaveis();
+        volante.RotacionarVolante(rotacaoVolanteAbsoluta);
+        rodas.GirarRodas(rotacaoVolanteAbsolutaNormalizado);
 
         if (!motorLigado) return;
         if (marchaNova != this.marcha)
@@ -55,8 +60,7 @@ public class CarroManager : MonoBehaviour
 
         addEffects();
 
-        volante.RotacionarVolante(rotacaoVolanteAbsoluta);
-        rodas.GirarRodas(rotacaoVolanteAbsolutaNormalizado);
+        Debug.Log("Acelerar Transmissao");
         transmicao.Acelerar(rodas, motor, embreagem, acelerador, kph);
         rodas.FreiarMao(freio);
         rodas.FreiarPedal(freio);
@@ -64,21 +68,24 @@ public class CarroManager : MonoBehaviour
 
     void addEffects()
     {
-        //LogitechGSDK.LogiPlayBumpyRoadEffect(0, 20);
-        //int forcaEfeito = (int) Mathf.Min(5 + kph / 5f, 15);
-        //LogitechGSDK.LogiPlayBumpyRoadEffect(0, forcaEfeito);
         if (offRoad)
         {
             int forcaEfeito = (int) Mathf.Min(10 + kph / 1.5f, 75);
             LogitechGSDK.LogiPlayDirtRoadEffect(0, forcaEfeito);
         } 
-        else if (pistaMolhada)
+        else
         {
-            int forcaEfeito = (int) Mathf.Min(10 + kph / 1.2f, 65);
+            LogitechGSDK.LogiStopDirtRoadEffect(0);
+        }
+        if (pistaMolhada)
+        {
+            int forcaEfeito = (int)Mathf.Min(10 + kph / 1.2f, 65);
             LogitechGSDK.LogiPlaySlipperyRoadEffect(0, forcaEfeito);
         }
-
-    
+        else
+        {
+            LogitechGSDK.LogiStopSlipperyRoadEffect(0);
+        }
     }
 
     void AtualizarVariaveis()
@@ -102,28 +109,87 @@ public class CarroManager : MonoBehaviour
             rotacaoVolanteAbsolutaNormalizado = rotacaoVolanteAbsoluta / _MAXIMO_INPUT_VOLANTE;
 
             marchaNova = ObterMarchaAtual();
-            if (inputsLogi.rgbButtons[24] == 128)
-                SceneManager.LoadScene("Menu");
-
-            if (inputsLogi.rgbButtons[6] == 128 || inputsLogi.rgbButtons[7] == 128)
-                SceneManager.LoadScene(controllerManager.nomeCena);
-        }
-        else
-        {
-            embreagem = 0;
-            freio = Input.GetKey(KeyCode.S) ? 1f : 0f;
-            acelerador = Input.GetKey(KeyCode.W) ? 1f : 0.1f;
-            if (Input.GetKey(KeyCode.A)) rotacaoVolanteAbsolutaNormalizado = -1;
-            else if (Input.GetKey(KeyCode.D)) rotacaoVolanteAbsolutaNormalizado = 1;
-            else rotacaoVolanteAbsolutaNormalizado = 0;
-
-            rotacaoVolanteAbsoluta += Mathf.Min(_MAXIMO_INPUT_VOLANTE, rotacaoVolanteAbsolutaNormalizado * 12000 * Time.deltaTime);
+            CapturarValoresBotoesVolante();
         }
 
         kph = carroRigidBody.linearVelocity.magnitude * 3.6f;
 
         centroDeMassa = GameObject.Find("Massa");
         carroRigidBody.centerOfMass = centroDeMassa.transform.localPosition;
+    }
+
+    private void CapturarValoresBotoesVolante()
+    {
+        VerificarBotao(24, () => SceneManager.LoadScene("Menu")); // Botão PlayStation
+        VerificarBotao(6, () => SceneManager.LoadScene(controllerManager.nomeCena)); // R2
+        VerificarBotao(7, () => SceneManager.LoadScene(controllerManager.nomeCena)); // L2
+        VerificarBotao(0, () => offRoad = !offRoad); // Botão X
+        VerificarBotao(1, () => {
+            pistaMolhada = !pistaMolhada;
+            Debug.Log(botoesPressionados[1] + " " + inputsLogi.rgbButtons[1]);
+        }); // Botão Quadrado
+
+        ObterValorDPad();
+    }
+
+    private void ObterValorDPad()
+    {
+        Vector3 posicao = pivotCameraVR.position;
+        switch (inputsLogi.rgdwPOV[0])
+        {
+            case (0): // UP
+                posicao.z += 0.5f * Time.deltaTime; 
+                break; 
+            case (4500): // UP-RIGHT
+                posicao.z += 0.3f * Time.deltaTime;
+                posicao.x += 0.3f * Time.deltaTime;
+                break; 
+            case (9000): // RIGHT
+                posicao.x += 0.5f * Time.deltaTime; 
+                break; 
+            case (13500): // DOWN-RIGHT
+                posicao.x += 0.3f * Time.deltaTime;
+                posicao.z -= 0.3f * Time.deltaTime;
+                break; 
+            case (18000): // DOWN
+                posicao.z -= 0.5f * Time.deltaTime; 
+                break; 
+            case (22500): // DOWN-LEFT
+                posicao.z -= 0.3f * Time.deltaTime;
+                posicao.x -= 0.3f * Time.deltaTime;
+                break;
+            case (27000): // LEFT
+                posicao.x -= 0.5f * Time.deltaTime; 
+                break; 
+            case (31500): // UP-LEFT
+                posicao.x -= 0.3f * Time.deltaTime;
+                posicao.z += 0.3f * Time.deltaTime;
+                break; 
+            default: // CENTER
+                break; 
+        }
+        if (inputsLogi.rgbButtons[20] == 128)
+        {
+            posicao.y -= 0.3f * Time.deltaTime;
+        } 
+        else if (inputsLogi.rgbButtons[19] == 128)
+        {
+            posicao.y += 0.3f * Time.deltaTime;
+        }
+        pivotCameraVR.position = posicao;
+    }
+
+    private void VerificarBotao(int indiceBotao, Action acao)
+    {
+        if (!botoesPressionados[indiceBotao] && inputsLogi.rgbButtons[indiceBotao] == 128)
+        {
+            botoesPressionados[indiceBotao] = true;
+            acao.Invoke();
+        }
+        else if (inputsLogi.rgbButtons[indiceBotao] != 128)
+        {
+            botoesPressionados[indiceBotao] = false;
+        }
     }
 
     public float VelocidadeTotal()

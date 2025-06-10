@@ -47,21 +47,28 @@ public class CarroManager : MonoBehaviour
     void Update()
     {
         AtualizarVariaveis();
+
+        addDownForce();
+        addEffects();
+
         volante.RotacionarVolante(rotacaoVolanteAbsoluta);
         rodas.GirarRodas(rotacaoVolanteAbsolutaNormalizado);
 
-        if (!motorLigado) return;
-        if (marchaNova != this.marcha)
+        if (controllerManager.ignicaoAcionada)
         {
-            marcha = marchaNova;
-            motor.TrocarMarcha(marcha, embreagem);
+            if (marchaNova != this.marcha)
+            {
+                marcha = marchaNova;
+                motor.TrocarMarcha(marcha, embreagem, true);
+            }
+            transmicao.Acelerar(rodas, motor, embreagem, acelerador, kph, !motor.EhMarchaNeutra());
         }
-        addDownForce();
+        else if (!motor.EhMarchaNeutra())
+        {
+            motor.TrocarMarcha(MarchaEnum.NEUTRO, 1, false);
+            transmicao.Acelerar(rodas, motor, 0f, 0f, kph, false);
+        }
 
-        addEffects();
-
-        Debug.Log("Acelerar Transmissao");
-        transmicao.Acelerar(rodas, motor, embreagem, acelerador, kph);
         rodas.FreiarMao(freio);
         rodas.FreiarPedal(freio);
     }
@@ -102,7 +109,7 @@ public class CarroManager : MonoBehaviour
             {
                 embreagem = NormalizarDadoPedal(inputsLogi.rglSlider[0]);
                 freio = NormalizarDadoPedal(inputsLogi.lRz);
-                acelerador = Mathf.Max(0.1f, NormalizarDadoPedal(inputsLogi.lY));
+                acelerador = NormalizarDadoPedal(inputsLogi.lY);
             }
 
             rotacaoVolanteAbsoluta = inputsLogi.lX;
@@ -123,60 +130,86 @@ public class CarroManager : MonoBehaviour
         VerificarBotao(24, () => SceneManager.LoadScene("Menu")); // Botão PlayStation
         VerificarBotao(6, () => SceneManager.LoadScene(controllerManager.nomeCena)); // R2
         VerificarBotao(7, () => SceneManager.LoadScene(controllerManager.nomeCena)); // L2
-        VerificarBotao(0, () => offRoad = !offRoad); // Botão X
+        VerificarBotao(0, () => {
+            offRoad = !offRoad;
+            controllerManager.notificacao.MostrarNotificacao("Pista de Terra Ativada");
+        }); // Botão X
         VerificarBotao(1, () => {
             pistaMolhada = !pistaMolhada;
-            Debug.Log(botoesPressionados[1] + " " + inputsLogi.rgbButtons[1]);
+            controllerManager.notificacao.MostrarNotificacao("Pista Molhada Ativada");
         }); // Botão Quadrado
+        VerificarBotao(2, () => {
+            if (controllerManager.sintoAfivelado)
+            {
+                controllerManager.ignicaoAcionada = true;
+                controllerManager.LigarCarro();
+            }
+            else
+            {
+                controllerManager.notificacao.MostrarNotificacao("Afivelar o sinto!");
+            }
+        }); // Botão Bolinha
 
         ObterValorDPad();
     }
 
     private void ObterValorDPad()
     {
+        float valorAlteracao = 0.3f;
         Vector3 posicao = pivotCameraVR.position;
         switch (inputsLogi.rgdwPOV[0])
         {
             case (0): // UP
-                posicao.z += 0.5f * Time.deltaTime; 
+                posicao.z += valorAlteracao * Time.deltaTime; 
                 break; 
             case (4500): // UP-RIGHT
-                posicao.z += 0.3f * Time.deltaTime;
-                posicao.x += 0.3f * Time.deltaTime;
+                posicao.z += valorAlteracao * Time.deltaTime * 0.5f;
+                posicao.x += valorAlteracao * Time.deltaTime * 0.5f;
                 break; 
             case (9000): // RIGHT
-                posicao.x += 0.5f * Time.deltaTime; 
+                posicao.x += valorAlteracao * Time.deltaTime; 
                 break; 
             case (13500): // DOWN-RIGHT
-                posicao.x += 0.3f * Time.deltaTime;
-                posicao.z -= 0.3f * Time.deltaTime;
+                posicao.x += valorAlteracao * Time.deltaTime * 0.5f;
+                posicao.z -= valorAlteracao * Time.deltaTime * 0.5f;
                 break; 
             case (18000): // DOWN
-                posicao.z -= 0.5f * Time.deltaTime; 
+                posicao.z -= valorAlteracao * Time.deltaTime * 0.5f; 
                 break; 
             case (22500): // DOWN-LEFT
-                posicao.z -= 0.3f * Time.deltaTime;
-                posicao.x -= 0.3f * Time.deltaTime;
+                posicao.z -= valorAlteracao * Time.deltaTime * 0.5f;
+                posicao.x -= valorAlteracao * Time.deltaTime * 0.5f;
                 break;
             case (27000): // LEFT
-                posicao.x -= 0.5f * Time.deltaTime; 
+                posicao.x -= valorAlteracao * Time.deltaTime; 
                 break; 
             case (31500): // UP-LEFT
-                posicao.x -= 0.3f * Time.deltaTime;
-                posicao.z += 0.3f * Time.deltaTime;
+                posicao.x -= valorAlteracao * Time.deltaTime * 0.5f;
+                posicao.z += valorAlteracao * Time.deltaTime * 0.5f;
                 break; 
             default: // CENTER
                 break; 
         }
         if (inputsLogi.rgbButtons[20] == 128)
         {
-            posicao.y -= 0.3f * Time.deltaTime;
+            posicao.y -= valorAlteracao * Time.deltaTime * 0.5f;
         } 
         else if (inputsLogi.rgbButtons[19] == 128)
         {
-            posicao.y += 0.3f * Time.deltaTime;
+            posicao.y += valorAlteracao * Time.deltaTime * 0.5f;
+        }
+        Quaternion rotation = pivotCameraVR.rotation;
+
+        if (inputsLogi.rgbButtons[21] == 128)
+        {
+            rotation.y -= valorAlteracao * Time.deltaTime * 0.3f;
+        }
+        else if (inputsLogi.rgbButtons[22] == 128)
+        {
+            rotation.y += valorAlteracao * Time.deltaTime * 0.3f;
         }
         pivotCameraVR.position = posicao;
+        pivotCameraVR.rotation = rotation;
     }
 
     private void VerificarBotao(int indiceBotao, Action acao)

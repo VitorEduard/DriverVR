@@ -5,7 +5,7 @@ public class TransmicaoManager : MonoBehaviour
     private MotorManager motor; 
     private float pedalEmbreagem, pedalEmbreagemInv, pedalAceleracao, rpmRodas;
 
-    public void Acelerar(RodasManager rodas, MotorManager motor, float pedalEmbreagem, float pedalAceleracao, float kph)
+    public void Acelerar(RodasManager rodas, MotorManager motor, float pedalEmbreagem, float pedalAceleracao, float kph, bool deveAcelerar)
     {
         this.pedalEmbreagem = pedalEmbreagem;
         this.pedalAceleracao = pedalAceleracao;
@@ -13,14 +13,17 @@ public class TransmicaoManager : MonoBehaviour
         this.pedalEmbreagemInv = Mathf.Abs(pedalEmbreagem - 1);
         this.motor = motor;
 
-        float forcaAceleracaoMotor = CalcularForcaAceleracaoMotor();
+        float forcaAceleracaoMotor = CalcularForcaAceleracaoMotor(deveAcelerar);
 
-        if (!motor.EhMarchaNeutra())
+        if (deveAcelerar)
         {
             float forcaFreioMotor = CalcularForcaFreioMotor(pedalEmbreagem, pedalAceleracao, motor, kph);
             float torqueAplicadoNaRoda = forcaAceleracaoMotor - forcaFreioMotor;
-            Debug.Log(torqueAplicadoNaRoda);
             rodas.Mover(torqueAplicadoNaRoda);
+        }
+        else
+        {
+            rodas.Mover(0f);
         }
     }
 
@@ -41,17 +44,18 @@ public class TransmicaoManager : MonoBehaviour
         return 0;
     }
 
-    private float CalcularForcaAceleracaoMotor()
+    private float CalcularForcaAceleracaoMotor(bool deveAcelerar)
     {
-        if (motor.EhMarchaNeutra())
-            return FaseMotorNeutro();
-        else
+        if (deveAcelerar)
             return FaseMotor();
+        else
+            return FaseMotorNeutro();
     }
 
     private float FaseMotorNeutro()
     {
         float rpmMotorAlvoMotor = motor.RpmAlvoMotorLivre(pedalAceleracao);
+        rpmMotorAlvoMotor -= 30_000 * Time.deltaTime;
         rpmMotorAlvoMotor = rpmMotorAlvoMotor - (300 + motor.RpmMotor() * 15 * Time.deltaTime);
         motor.CalcularRpmMotor(rpmMotorAlvoMotor, 0.05f + 0.4f);
         return 0f;
@@ -73,11 +77,10 @@ public class TransmicaoManager : MonoBehaviour
         // Se a embreagem estiver muito apertada a velocidade com que o motor aumenta as rotações aumenta também
         float impactoEmbreagem = (Mathf.Abs(pedalEmbreagem - 1) * 0.4f);
         float v = motor.CalcularRpmMotor(rpmMotorAlvo, 0.05f + impactoEmbreagem);
-        Debug.Log(v);
 
-        motor.ValidarVariacaoRpmMuitoAlta(rpmMotorAlvo, pedalEmbreagem);
+        //motor.ValidarVariacaoRpmMuitoAlta(rpmMotorAlvo, pedalEmbreagem);
 
-        float torqueTotal = motor.CalcularPotenciaMotor(pedalAceleracao) * pedalEmbreagemInv;
+        float torqueTotal = motor.CalcularPotenciaMotor(Mathf.Max(0.1f, pedalAceleracao)) * pedalEmbreagemInv;
 
         return torqueTotal;
     }

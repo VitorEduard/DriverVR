@@ -8,7 +8,7 @@ public class ControllerManager : MonoBehaviour
     [SerializeField] private Transform cameraRig;
     [SerializeField] private Transform pontoNoCarro;
 
-    private bool sintoAfivelado = false;
+    public bool sintoAfivelado { get; set; } = false;
     public bool ignicaoAcionada = false;
 
 

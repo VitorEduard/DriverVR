@@ -34,6 +34,7 @@ public class ColisaoSinto : MonoBehaviour
 
             // Torna filho da ancora (opcional, se quiser manter fixo mesmo se B mover)
             collider.transform.SetParent(ancoraPontaSinto);
+            GetComponent<BoxCollider>().enabled = false;
         }
     }
 

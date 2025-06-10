@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 
 public class MarchaEnum {
     public static readonly MarchaEnum RE = new MarchaEnum("Ré", -380, 3.2f);

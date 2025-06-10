@@ -17,7 +17,7 @@ public class MotorManager : MonoBehaviour
     private float rpmMotorAnterior = 800f;
     private float diferencial = 4.1f;
     private float velocidadeSuavizada = 0.0f;
-    private float freioMotor = 2_000f;
+    private float freioMotor = 500_000f;
 
 
     public float CalcularFreioMotor()
@@ -32,11 +32,7 @@ public class MotorManager : MonoBehaviour
 
     public float RpmAlvoMotorLivre(float pedalAceleracao)
     {
-        rpmMotorAnterior = rpmMotor;
-        float rpmMotorLivre = Mathf.Max(rotacaoLivre, rpmMotor + (pedalAceleracao * 400_000 * Time.deltaTime));
-        float aumentoRpmMotor = rpmMotor - rpmMotorAnterior;
-        float resistenciaMotor = MathF.Abs(curvaLimiteRPMMotor.Evaluate(rpmMotor) - 1);
-        return rpmMotorAnterior + (aumentoRpmMotor * resistenciaMotor);
+        return Mathf.Max(rotacaoLivre, rpmMotor + (pedalAceleracao * 75_000 * Time.deltaTime));
     }
 
     public bool EhMarchaNeutra()
@@ -49,7 +45,7 @@ public class MotorManager : MonoBehaviour
         float eficienciaMotor = curvaTorque.Evaluate(rpmMotor);
         // Calcula o torque usando a curva de eficiência (Injeção Eletrônica)
         float aceleracaoAplicada = Mathf.Min(eficienciaMotor, pedalAceleracao);
-        return aceleracaoAplicada * marchaAtual.Torque * 600;
+        return aceleracaoAplicada * marchaAtual.Torque * 15_000 * Time.deltaTime;
     }
 
     public float CalcularRpmMotor(float rpmMotorAlvo, float impactoEmbreagem)
@@ -71,6 +67,7 @@ public class MotorManager : MonoBehaviour
     {
         if (rpmMotorAlvo < (rotacaoLivre * 0.5) && EmbreagemPressionada(pedalEmbreagem))
         {
+            Debug.Log("nRPM Ficou muito abaixo");
             controllerManager.ignicaoAcionada = false;
             controllerManager.notificacao.MostrarNotificacao("Carro Morreu!\nRPM Ficou muito abaixo");
         }
@@ -80,6 +77,7 @@ public class MotorManager : MonoBehaviour
     {
         if (Mathf.Abs(rpmMotorAlvo - rpmMotor) > 3000 && EmbreagemPressionada(pedalEmbreagem))
         {
+            Debug.Log("nRPM variou muito");
             controllerManager.ignicaoAcionada = false;
             controllerManager.notificacao.MostrarNotificacao("Carro Morreu!\nRPM variou muito");
         }
@@ -96,14 +94,21 @@ public class MotorManager : MonoBehaviour
         return pedalEmbreagem < 0.8f;
     }
 
-    public void TrocarMarcha(MarchaEnum marcha, float pedalEmbreagem)
+    public void TrocarMarcha(MarchaEnum marcha, float pedalEmbreagem, bool notificar)
     {
         if (pedalEmbreagem < 0.8)
         {
             controllerManager.ignicaoAcionada = false;
             controllerManager.notificacao.MostrarNotificacao("Carro Morreu!\nDeveria ter apertado na embreagem para trocar de Marcha");
         }
-        this.marchaAtual = marcha;
+        else
+        {
+            if (notificar && !MarchaEnum.NEUTRO.Equals(marcha))
+            {
+                controllerManager.notificacao.MostrarNotificacao("Marcha " + marcha.Nome);
+            }
+            this.marchaAtual = marcha;
+        }
     }
 
 }

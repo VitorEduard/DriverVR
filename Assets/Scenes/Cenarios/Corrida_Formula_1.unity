@@ -15157,7 +15157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notificacao: {fileID: 1036140319}
-  nomeCena: Plano
+  nomeCena: Corrida_Formula_1
   cameraRig: {fileID: 271681222}
   pontoNoCarro: {fileID: 1994424218}
   ignicaoAcionada: 0
@@ -28972,7 +28972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3945d2ad9d804fc49a99ccba981840fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerManager: {fileID: 0}
+  controllerManager: {fileID: 431871536}
   ancoraPontaSinto: {fileID: 705804367}
 --- !u!54 &822110083
 Rigidbody:
@@ -86638,7 +86638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8028012339f7224590d4f5782d9bf17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerManager: {fileID: 0}
+  controllerManager: {fileID: 431871536}
   eficienciaMotor:
     serializedVersion: 2
     m_Curve:

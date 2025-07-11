@@ -71,14 +71,12 @@ public class TransmicaoManager : MonoBehaviour
 
         rpmMotorAlvo -= 30_000 * Time.deltaTime;
 
-        // Se a rotação alvo for menos que a livre deve matar o carro!!!
-        motor.ValidarSeRpmMuitoBaixo(rpmMotorAlvo, pedalEmbreagem);
-
         // Se a embreagem estiver muito apertada a velocidade com que o motor aumenta as rotações aumenta também
         float impactoEmbreagem = (Mathf.Abs(pedalEmbreagem - 1) * 0.4f);
-        float v = motor.CalcularRpmMotor(rpmMotorAlvo, 0.05f + impactoEmbreagem);
+        float rpmMotorAtual = motor.CalcularRpmMotor(rpmMotorAlvo, 0.05f + impactoEmbreagem);
 
-        //motor.ValidarVariacaoRpmMuitoAlta(rpmMotorAlvo, pedalEmbreagem);
+        // Se a rotação alvo for menos que a livre deve matar o carro!!!
+        motor.ValidarSeRpmMuitoBaixo(rpmMotorAtual, pedalEmbreagem);
 
         float torqueTotal = motor.CalcularPotenciaMotor(Mathf.Max(0.1f, pedalAceleracao)) * pedalEmbreagemInv;
 

@@ -13557,7 +13557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8028012339f7224590d4f5782d9bf17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerManager: {fileID: 0}
+  controllerManager: {fileID: 1278307557}
   eficienciaMotor:
     serializedVersion: 2
     m_Curve:
@@ -36539,7 +36539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notificacao: {fileID: 1122392716}
-  nomeCena: Plano
+  nomeCena: Corrida_Nascar
   cameraRig: {fileID: 1562305225}
   pontoNoCarro: {fileID: 713194684}
   ignicaoAcionada: 0
@@ -48053,7 +48053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3945d2ad9d804fc49a99ccba981840fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerManager: {fileID: 0}
+  controllerManager: {fileID: 1278307557}
   ancoraPontaSinto: {fileID: 1399738559}
 --- !u!54 &1659208490
 Rigidbody:

@@ -67,7 +67,6 @@ public class MotorManager : MonoBehaviour
     {
         if (rpmMotorAlvo < (rotacaoLivre * 0.5) && EmbreagemPressionada(pedalEmbreagem))
         {
-            Debug.Log("nRPM Ficou muito abaixo");
             controllerManager.ignicaoAcionada = false;
             controllerManager.notificacao.MostrarNotificacao("Carro Morreu!\nRPM Ficou muito abaixo");
         }
@@ -77,7 +76,6 @@ public class MotorManager : MonoBehaviour
     {
         if (Mathf.Abs(rpmMotorAlvo - rpmMotor) > 3000 && EmbreagemPressionada(pedalEmbreagem))
         {
-            Debug.Log("nRPM variou muito");
             controllerManager.ignicaoAcionada = false;
             controllerManager.notificacao.MostrarNotificacao("Carro Morreu!\nRPM variou muito");
         }
@@ -91,12 +89,12 @@ public class MotorManager : MonoBehaviour
 
     private bool EmbreagemPressionada(float pedalEmbreagem)
     {
-        return pedalEmbreagem < 0.8f;
+        return pedalEmbreagem < 0.65f;
     }
 
     public void TrocarMarcha(MarchaEnum marcha, float pedalEmbreagem, bool notificar)
     {
-        if (pedalEmbreagem < 0.8)
+        if (EmbreagemPressionada(pedalEmbreagem))
         {
             controllerManager.ignicaoAcionada = false;
             controllerManager.notificacao.MostrarNotificacao("Carro Morreu!\nDeveria ter apertado na embreagem para trocar de Marcha");

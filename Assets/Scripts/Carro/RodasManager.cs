@@ -7,8 +7,8 @@ public class RodasManager : MonoBehaviour
     [SerializeField] private WheelCollider[] pneus = new WheelCollider[4];
     [SerializeField] private GameObject[] meshPneus = new GameObject[4];
     [SerializeField] private TracaoEnum tracao = TracaoEnum.DIANTEIRA;
-    [SerializeField] private int poderDeFreioPedal = 50_000_000;
-    [SerializeField] private int poderDeFreioMao = 20_000_000;
+    private int poderDeFreioPedal = 2_000_000;
+    private int poderDeFreioMao = 1_000_000;
     private int raio = 6;
 
 

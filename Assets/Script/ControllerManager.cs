@@ -8,7 +8,7 @@ public class ControllerManager : MonoBehaviour
     [SerializeField] private Transform cameraRig;
     [SerializeField] private Transform pontoNoCarro;
 
-    public bool sintoAfivelado { get; set; } = false;
+    public bool sintoAfivelado { get; set; } = true;
     public bool ignicaoAcionada = false;
 
 
@@ -22,7 +22,7 @@ public class ControllerManager : MonoBehaviour
     public void AfivelarSinto()
     {
         sintoAfivelado = true;
-        notificacao.MostrarNotificacao("Sinto Afinelado");
+        notificacao.MostrarNotificacao("Cinto Afinelado");
     }
 
     public void LigarCarro()

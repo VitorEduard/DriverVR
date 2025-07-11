@@ -7543,7 +7543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8028012339f7224590d4f5782d9bf17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerManager: {fileID: 0}
+  controllerManager: {fileID: 586428194}
   eficienciaMotor:
     serializedVersion: 2
     m_Curve:
@@ -15690,7 +15690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notificacao: {fileID: 297444066}
-  nomeCena: Plano
+  nomeCena: Morro
   cameraRig: {fileID: 2075633490}
   pontoNoCarro: {fileID: 1489424016}
   ignicaoAcionada: 0
@@ -36483,7 +36483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3945d2ad9d804fc49a99ccba981840fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerManager: {fileID: 0}
+  controllerManager: {fileID: 586428194}
   ancoraPontaSinto: {fileID: 568246061}
 --- !u!54 &1395596913
 Rigidbody:

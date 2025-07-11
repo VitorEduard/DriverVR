@@ -132,11 +132,26 @@ public class CarroManager : MonoBehaviour
         VerificarBotao(7, () => SceneManager.LoadScene(controllerManager.nomeCena)); // L2
         VerificarBotao(0, () => {
             offRoad = !offRoad;
-            controllerManager.notificacao.MostrarNotificacao("Pista de Terra Ativada");
+            if (offRoad)
+            {
+                controllerManager.notificacao.MostrarNotificacao("Pista de Terra Ativada");
+            }
+            else
+            {
+                controllerManager.notificacao.MostrarNotificacao("Pista de Terra Desativada");
+            }
         }); // Botão X
         VerificarBotao(1, () => {
             pistaMolhada = !pistaMolhada;
-            controllerManager.notificacao.MostrarNotificacao("Pista Molhada Ativada");
+            if (pistaMolhada)
+            {
+                controllerManager.notificacao.MostrarNotificacao("Pista Molhada Ativada");
+            }
+            else
+            {
+                controllerManager.notificacao.MostrarNotificacao("Pista Molhada Desativada");
+            }
+
         }); // Botão Quadrado
         VerificarBotao(2, () => {
             if (controllerManager.sintoAfivelado)
@@ -146,7 +161,7 @@ public class CarroManager : MonoBehaviour
             }
             else
             {
-                controllerManager.notificacao.MostrarNotificacao("Afivelar o sinto!");
+                controllerManager.notificacao.MostrarNotificacao("Afivelar o cinto!");
             }
         }); // Botão Bolinha
 
